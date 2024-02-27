@@ -25,6 +25,6 @@ namespace SignalRAssignment.Models
         public string ProductImage { get; set; }
 
         public Supplier Supplier { get; set; }
-        public Category Category { get; set; }
+        public Categories Category { get; set; }
     }
 }
