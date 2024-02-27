@@ -8,7 +8,7 @@ namespace SignalRAssignment.Models
         [Key]
         public int OrderID { get; set; }
 
-        [ForeignKey("Customer")]
+        [ForeignKey("Customers")]
         public int CustomerID { get; set; }
 
         [Required]
@@ -23,5 +23,8 @@ namespace SignalRAssignment.Models
         public string ShipAddress { get; set; }
 
         public Customers Customer { get; set; }
+
+        // Navigation property to represent the relationship with OrderDetail
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

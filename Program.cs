@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SignalRAssignment.Data;
 
 namespace SignalRAssignment
@@ -10,7 +11,9 @@ namespace SignalRAssignment
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-            builder.Services.AddDbContext<ApplicationContext>();
+            // Register Database
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
            var app = builder.Build();
 
             // Configure the HTTP request pipeline.

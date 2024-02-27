@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SignalRAssignment.Models
 {
@@ -15,7 +16,7 @@ namespace SignalRAssignment.Models
         [ForeignKey("Supplier")]
         public int SupplierID { get; set; }
 
-        [ForeignKey("Category")]
+        [ForeignKey("Categories")]
         public int CategoryID { get; set; }
 
         public string QuantityPerUnit { get; set; }
@@ -26,5 +27,8 @@ namespace SignalRAssignment.Models
 
         public Supplier Supplier { get; set; }
         public Categories Category { get; set; }
+
+        // Navigation property to represent the relationship with OrderDetail
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }
