@@ -1,13 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SignalRAssignment.Models
 {
-    public class Customer
+    public class Customers
     {
         [Key]
-        public int CustomerID { get; set; }
+        [Required]
+        public Guid CustomerID { get; set; }
 
-        [Required(ErrorMessage = "Password is required!")]
+        [Column(TypeName = "nvarchar(20)")]
+        [Required(ErrorMessage ="Password is required.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "ContactName is required")]

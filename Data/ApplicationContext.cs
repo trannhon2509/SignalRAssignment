@@ -5,7 +5,7 @@ namespace SignalRAssignment.Data
 {
     public class ApplicationContext :DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customers> Customers { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Account> Accounts { get; set; }

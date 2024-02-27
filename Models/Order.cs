@@ -22,6 +22,6 @@ namespace SignalRAssignment.Models
 
         public string ShipAddress { get; set; }
 
-        public Customer Customer { get; set; }
+        public Customers Customer { get; set; }
     }
 }

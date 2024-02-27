@@ -1,25 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SignalRAssignment.Models
 {
     public class Account
     {
         [Key]
-        public int AccountID { get; set; }
+        [Required]
+        public Guid AccountID { get; set; }
 
-        [Required(ErrorMessage = "Username is required!")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "User Name is required.")]
+        [Column(TypeName = "varchar(100)")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Passsword is required!")]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Password is required.")]
+        [Column(TypeName = "varchar(20)")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "FullName is required!")]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "Full Name is required.")]
+        [Column(TypeName = "varchar(100)")]
         public string FullName { get; set; }
-        [Required(ErrorMessage = "Type is required!")])]
-        [Range(0, 1)]
-        public int Type { get; set; }
+        [Range(0, 1, ErrorMessage ="Only accept 1 or 0.")]
+        public byte? Type { get; set; }
     }
 }
