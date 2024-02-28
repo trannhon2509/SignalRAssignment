@@ -6,13 +6,12 @@ namespace SignalRAssignment.Models
     public class OrderDetail
     {
         [Key]
-        public int OrderDetailID { get; set; }
+        [Required]
+        public Guid OrderDetailID { get; set; }
 
-        [ForeignKey("Order")]
-        public int OrderID { get; set; }
+        public Guid OrderID { get; set; }
 
-        [ForeignKey("Product")]
-        public int ProductID { get; set; }
+        public Guid ProductID { get; set; }
 
         public decimal UnitPrice { get; set; }
 

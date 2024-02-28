@@ -6,10 +6,10 @@ namespace SignalRAssignment.Models
     public class Order
     {
         [Key]
-        public int OrderID { get; set; }
+        [Required]
+        public Guid OrderID { get; set; }
 
-        [ForeignKey("Customers")]
-        public int CustomerID { get; set; }
+        public Guid CustomerID { get; set; }
 
         [Required]
         public DateTime OrderDate { get; set; }
@@ -19,7 +19,8 @@ namespace SignalRAssignment.Models
         public DateTime? ShippedDate { get; set; }
 
         public decimal Freight { get; set; }
-
+        [Column(TypeName = "nvarchar(100)")]
+        [Required(ErrorMessage = "Delivery address is required.")]
         public string ShipAddress { get; set; }
 
         public Customers Customer { get; set; }

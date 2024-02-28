@@ -7,23 +7,24 @@ namespace SignalRAssignment.Models
     public class Product
     {
         [Key]
-        public int ProductID { get; set; }
-
         [Required]
-        [MaxLength(100)]
+        public Guid ProductID { get; set; }
+
+        [Required(ErrorMessage ="Product Name is required.")]
+        [Column(TypeName = "nvarchar(100)")]
         public string ProductName { get; set; }
 
-        [ForeignKey("Supplier")]
-        public int SupplierID { get; set; }
+        public Guid SupplierID { get; set; }
 
-        [ForeignKey("Categories")]
-        public int CategoryID { get; set; }
+        public Guid CategoryID { get; set; }
 
+        [Required(ErrorMessage = "This field is required.")]
+        [Column(TypeName = "nvarchar(20)")]
         public string QuantityPerUnit { get; set; }
 
         public decimal UnitPrice { get; set; }
-
-        public string ProductImage { get; set; }
+        [Column(TypeName = "nvarchar(300)")]
+        public string? ProductImage { get; set; }
 
         public Supplier Supplier { get; set; }
         public Categories Category { get; set; }

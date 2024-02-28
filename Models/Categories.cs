@@ -15,5 +15,7 @@ namespace SignalRAssignment.Models
         [Column(TypeName = "nvarchar(250)")]
         [DisplayFormat(NullDisplayText = "No description.")]
         public string? Description { get; set; }
+
+        ICollection<Product> Products { get; set; }
     }
 }
